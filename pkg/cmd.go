@@ -7,7 +7,7 @@ import (
 	"os/exec"
 )
 
-func ExecCommand(cmd string) (string, error) {
+func ExecCommand(cmd string) ([]byte, error) {
 	pipeline := exec.Command("/bin/sh", "-c", cmd)
 	var out bytes.Buffer
 	var stderr bytes.Buffer
@@ -15,10 +15,10 @@ func ExecCommand(cmd string) (string, error) {
 	pipeline.Stderr = &stderr
 	err := pipeline.Run()
 	if err != nil {
-		return stderr.String(), err
+		return stderr.Bytes(), err
 	}
 	// fmt.Println(stderr.String())
-	return out.String(), nil
+	return out.Bytes(), nil
 }
 
 func ReadFile(path string) ([]byte, error) {

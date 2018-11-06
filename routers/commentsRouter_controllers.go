@@ -7,6 +7,14 @@ import (
 
 func init() {
 
+	beego.GlobalControllerRouter["github.com/lflxp/nmapi/controllers:NmapController"] = append(beego.GlobalControllerRouter["github.com/lflxp/nmapi/controllers:NmapController"],
+		beego.ControllerComments{
+			Method: "Post",
+			Router: `/`,
+			AllowHTTPMethods: []string{"post"},
+			MethodParams: param.Make(),
+			Params: nil})
+
 	beego.GlobalControllerRouter["github.com/lflxp/nmapi/controllers:ObjectController"] = append(beego.GlobalControllerRouter["github.com/lflxp/nmapi/controllers:ObjectController"],
 		beego.ControllerComments{
 			Method: "Post",

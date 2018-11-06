@@ -1,6 +1,31 @@
 # nmapi
 namp api parse
 
+# Demo
+
+```
+package main
+
+import (
+	"fmt"
+	"github.com/lflxp/nmapi/pkg"
+)
+
+func main() {
+	s := pkg.NewScanner()
+	s.SetArgs("-A").SetArgs("192.168.1.3")
+	ss, err := s.Parse()
+	if err != nil {
+		panic(err)
+	}
+
+	// fmt.Println(string(a123))
+	for _, x := range ss.Hosts {
+		fmt.Println(x.Ports)
+	}
+}
+```
+
 # github URL
 
 [参考地址](https://blog.csdn.net/m0_37438418/article/details/79837153)
