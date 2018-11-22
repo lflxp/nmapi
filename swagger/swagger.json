@@ -16,6 +16,21 @@
     "basePath": "/v1",
     "paths": {
         "/nmap/": {
+            "get": {
+                "tags": [
+                    "nmap"
+                ],
+                "description": "create object",
+                "operationId": "NmapController.Create",
+                "responses": {
+                    "200": {
+                        "description": "{string} success"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            },
             "post": {
                 "tags": [
                     "nmap"

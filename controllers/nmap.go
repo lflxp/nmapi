@@ -32,3 +32,14 @@ func (this *NmapController) Post() {
 
 	this.ServeJSON()
 }
+
+// @Title Create
+// @Description create object
+// @Success 200 {string} success
+// @Failure 403 body is empty
+// @router / [get]
+func (this *NmapController) Get() {
+	this.Data["json"] = "ok"
+	this.Ctx.Output.SetStatus(409)
+	this.ServeJSON()
+}
